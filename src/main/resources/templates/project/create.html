@@ -12,88 +12,100 @@
 <main>
     <div class="container-xl">
         <h2>Create New Project</h2>
-        <form>
+        <form th:action="@{/project/create}" method="post" th:object="${projectDTO}">
             <div>
                 <label class="form-label">Project Name</label>
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" name="name">
             </div>
             <div>
                 <label class="form-label">Project Code</label>
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" name="code">
             </div>
 
             <div>
                 <label>From</label>
-                <input class="form-control" type="date"/>
+                <input class="form-control" type="date" name="startDate"/>
             </div>
 
             <div>
                 <label>To</label>
-                <input class="form-control" type="date"/>
+                <input class="form-control" type="date" name="endDate"/>
             </div>
 
             <div>
-                <label>PM</label>
-                <select class="form-select">
-                    <option>Huy</option>
-                </select>
+
+                <div>
+                    <label>PM</label>
+                    <select class="form-select" th:field="*{pm}">
+                        <div th:each="s : ${staffList}">
+                            <option th:text="${s.name}" th:value="${s.id}"></option>
+                        </div>
+                    </select>
+                </div>
+
+                <div>
+                    <label>QA</label>
+                    <select class="form-select" name="qa">
+                        <div th:each="s : ${staffList}">
+                            <option th:text="${s.name}" th:value="${s.id}"></option>
+                        </div>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Technical Lead</label>
+                    <select class="form-select" multiple th:field="*{techLead}">
+                        <div th:each="s : ${staffList}">
+                            <option th:text="${s.name}" th:value="${s.id}"></option>
+                        </div>
+                    </select>
+                </div>
+
+                <div>
+                    <label>BA</label>
+                    <select class="form-select" multiple name="ba">
+                        <div th:each="s : ${staffList}">
+                            <option th:text="${s.name}" th:value="${s.id}"></option>
+                        </div>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Developers</label>
+                    <select class="form-select" multiple name="dev">
+                        <div th:each="s : ${staffList}">
+                            <option th:text="${s.name}" th:value="${s.id}"></option>
+                        </div>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Testers</label>
+                    <select class="form-select" multiple name="tester">
+                        <div th:each="s : ${staffList}">
+                            <option th:text="${s.name}" th:value="${s.id}"></option>
+                        </div>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Technical Consultancy</label>
+                    <select class="form-select" multiple name="techConsult">
+                        <div th:each="s : ${staffList}">
+                            <option th:text="${s.name}" th:value="${s.id}"></option>
+                        </div>
+                    </select>
+                </div>
             </div>
 
             <div>
-                <label>PM</label>
-                <select class="form-select">
-                    <option>Huy</option>
-                </select>
-            </div>
-
-            <div>
-                <label>QA</label>
-                <select class="form-select">
-                    <option>Huy</option>
-                </select>
-            </div>
-
-            <div>
-                <label>Technical Lead</label>
-                <select class="form-select">
-                    <option>Huy</option>
-                </select>
-            </div>
-
-            <div>
-                <label>BA</label>
-                <select class="form-select">
-                    <option>Huy</option>
-                </select>
-            </div>
-
-            <div>
-                <label>Developers</label>
-                <select class="form-select">
-                    <option>Huy</option>
-                </select>
-            </div>
-
-            <div>
-                <label>Testers</label>
-                <select class="form-select">
-                    <option>Huy</option>
-                </select>
-            </div>
-
-            <div>
-                <label>Technical Consultancy</label>
-                <select class="form-select">
-                    <option>Huy</option>
-                </select>
-            </div>
-
-            <div>
-                <button class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button class="btn btn-danger">Cancel</button>
             </div>
 
         </form>
-    </div>>
+    </div>
+
 </main>
 </body>
 

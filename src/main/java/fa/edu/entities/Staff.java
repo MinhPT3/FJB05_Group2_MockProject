@@ -22,6 +22,10 @@ public class Staff {
     private String department;
     private String password;
     private String rePassword;
+
     @OneToMany(mappedBy = "staff")
     private List<ClaimRequest> claimRequests = new ArrayList<>();
+
+    @OneToMany(mappedBy = "staff", cascade = CascadeType.REMOVE)
+    private List<Working> workingList = new ArrayList<>();
 }

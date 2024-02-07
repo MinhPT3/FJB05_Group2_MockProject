@@ -38,10 +38,10 @@
 
                 <tbody>
                 <tr th:each="p : ${projectList}">
-                    <td th:text="${p.pm}"></td>
-                    <td th:text="${p.qa}"></td>
-                    <td th:text="${p.nameProject}"></td>
-                    <td th:text="${p.projectCode}"></td>
+                    <td th:text="${p.getPM().getStaff().name}"></td>
+                    <td th:text="${p.getQA().getStaff().name}"></td>
+                    <td th:text="${p.name}"></td>
+                    <td th:text="${p.code}"></td>
                     <td>
                         <a class="btn btn-primary" data-toggle="modal"><span>Edit</span></a>
                         <a class="btn btn-danger" data-toggle="modal"> <span>Delete</span></a>
