@@ -38,8 +38,8 @@
 
                 <tbody>
                 <tr th:each="p : ${projectList}">
-                    <td th:text="${p.getPM().getStaff().name}"></td>
-                    <td th:text="${p.getQA().getStaff().name}"></td>
+                    <td th:text="${p.getPM()}"></td>
+                    <td th:text="${p.getQA()}"></td>
                     <td th:text="${p.name}"></td>
                     <td th:text="${p.code}"></td>
                     <td>

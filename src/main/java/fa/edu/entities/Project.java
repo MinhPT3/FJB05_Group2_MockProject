@@ -35,7 +35,7 @@ public class Project {
     @OneToMany(mappedBy = "project", cascade = CascadeType.REMOVE)
     private List<Working> workingList = new ArrayList<>();
 
-    public Working getPM() {
+    public String getPM() {
         Working pm = new Working();
 
         for (Working w : workingList) {
@@ -43,10 +43,10 @@ public class Project {
                 pm = w;
             }
         }
-        return pm;
+        return pm.getStaff().getName();
     }
 
-    public Working getQA() {
+    public String getQA() {
         Working qa = new Working();
 
         for (Working w : workingList) {
@@ -54,6 +54,6 @@ public class Project {
                 qa = w;
             }
         }
-        return qa;
+        return qa.getStaff().getName();
     }
 }
