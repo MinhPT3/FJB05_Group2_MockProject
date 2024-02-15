@@ -111,4 +111,12 @@ public class ProjectController {
 
         return "redirect:/project/list";
     }
+
+    @GetMapping("/project/update")
+    public String showUpdateUI(Model model) {
+        model.addAttribute("staffList", staffRepository.findAll());
+        model.addAttribute("projectDTO", new ProjectDTO());
+
+        return "project/update";
+    }
 }

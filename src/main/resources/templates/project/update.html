@@ -11,7 +11,7 @@
 <body>
 <main>
     <div class="container-xl">
-        <h2>Create New Project</h2>
+        <h2>Update Project</h2>
         <form th:action="@{/project/create}" method="post" th:object="${projectDTO}">
             <div>
                 <label class="form-label">Project Name</label>
@@ -100,7 +100,7 @@
 
             <div>
                 <button type="submit" class="btn btn-primary">Save</button>
-                <button type="reset" class="btn btn-danger">Cancel</button>
+                <button class="btn btn-danger">Cancel</button>
             </div>
 
         </form>
